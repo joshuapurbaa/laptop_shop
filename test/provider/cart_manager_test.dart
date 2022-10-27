@@ -2,14 +2,32 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:laptop_shop/models/cart_manager.dart';
 
 void main() {
-  test('A new item should be added', () {
+  group('Provider Test', () {
     // Arrange
-    final cartManager = CartManager();
+    late CartManager cartManager;
     const mockNewCartItem = 'Mock Laptop Asus';
-    // Act
-    cartManager.addToCart(mockNewCartItem);
-    // Assert
-    final result = cartManager.cartList.contains(mockNewCartItem);
-    expect(result, true);
+
+    setUp(() {
+      cartManager = CartManager();
+    });
+
+    test('A new item should be added', () {
+      // Act
+      cartManager.addToCart(mockNewCartItem);
+      // Assert
+      final result = cartManager.cartList.contains(mockNewCartItem);
+      expect(result, true);
+    });
+    test(
+      'A selected item should be removed',
+      () {
+        // Act
+        cartManager.deleteCart(mockNewCartItem);
+        // Assert
+        final result = cartManager.cartList.contains(mockNewCartItem);
+        expect(result, false);
+      },
+    );
+    // Test lainnya...
   });
 }
