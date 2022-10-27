@@ -22,7 +22,10 @@ class ProductScreen extends StatelessWidget {
                 ),
               );
             },
-            icon: const Icon(Icons.shopping_cart_rounded),
+            icon: const Icon(
+              Icons.shopping_cart_rounded,
+              key: Key('cart_screen_button'),
+            ),
           ),
         ],
       ),

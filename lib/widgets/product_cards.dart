@@ -43,7 +43,10 @@ class ProductCards extends StatelessWidget {
                             Icons.shopping_cart,
                             color: Colors.yellow[900],
                           )
-                        : const Icon(Icons.shopping_cart),
+                        : Icon(
+                            Icons.shopping_cart,
+                            key: Key(productName),
+                          ),
                   ),
                 ],
               ),
