@@ -45,7 +45,6 @@ class ProductCards extends StatelessWidget {
                           )
                         : Icon(
                             Icons.shopping_cart,
-                            key: Key(productName),
                           ),
                   ),
                 ],
