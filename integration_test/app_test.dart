@@ -7,7 +7,7 @@ void main() {
   group('Testing full app flow', () {
     IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-    testWidgets('Should have Gridview with text', (tester) async {
+    testWidgets('App widget flow from product to cart screen', (tester) async {
       // 1
       app.main();
       // 2
