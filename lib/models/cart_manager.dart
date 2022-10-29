@@ -8,9 +8,4 @@ class CartManager extends ChangeNotifier {
     _cartList.add(productName);
     notifyListeners();
   }
-
-  void deleteCart(String productName) {
-    _cartList.remove(productName);
-    notifyListeners();
-  }
 }

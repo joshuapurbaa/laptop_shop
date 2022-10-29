@@ -8,6 +8,7 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartList = Provider.of<CartManager>(context, listen: false).cartList;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cart Page'),
@@ -15,39 +16,30 @@ class CartScreen extends StatelessWidget {
       body: Container(
         color: Colors.orange.withOpacity(0.5),
         padding: const EdgeInsets.all(16),
-        child: Consumer<CartManager>(builder: (context, manager, child) {
-          final cartList = manager.cartList;
-          return Column(
-            children: [
-              Expanded(
-                child: ListView.builder(
-                  itemCount: cartList.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(
-                        cartList[index],
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.delete_forever_rounded),
-                        onPressed: () {
-                          manager.deleteCart(cartList[index]);
-                        },
-                      ),
-                    );
-                  },
-                ),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: cartList.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(
+                      cartList[index],
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                  );
+                },
               ),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  'Buy',
-                  style: TextStyle(fontSize: 30),
-                ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text(
+                'Buy',
+                style: TextStyle(fontSize: 30),
               ),
-            ],
-          );
-        }),
+            ),
+          ],
+        ),
       ),
     );
   }
