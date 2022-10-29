@@ -14,6 +14,7 @@ class ProductScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
+            tooltip: 'cart_screen_button',
             onPressed: () {
               Navigator.push(
                 context,
@@ -24,7 +25,6 @@ class ProductScreen extends StatelessWidget {
             },
             icon: const Icon(
               Icons.shopping_cart_rounded,
-              key: Key('cart_screen_button'),
             ),
           ),
         ],

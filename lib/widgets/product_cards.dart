@@ -37,15 +37,15 @@ class ProductCards extends StatelessWidget {
                     ),
                   ),
                   IconButton(
+                    key: Key(productName),
                     onPressed: onTap,
                     icon: isAdded
                         ? Icon(
                             Icons.shopping_cart,
                             color: Colors.yellow[900],
                           )
-                        : Icon(
+                        : const Icon(
                             Icons.shopping_cart,
-                            key: Key(productName),
                           ),
                   ),
                 ],
